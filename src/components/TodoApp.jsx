@@ -5,6 +5,9 @@ import TodoInput from './TodoInput';
 import DropDown from './DropDown';
 import Popup from './Popup';
 import { useState } from 'react';
+import EmptyTask from './EmptyTask';
+
+
 
 const TodoApp = () => {
   const [showPopup, setShowPopup] = useState(false); // popup for getting new task
@@ -15,6 +18,7 @@ const TodoApp = () => {
   const selectedList = ['all', 'completed', 'pending']; // for filtering
   const [selected, setSelected] = useState('all'); // default filter
   const [search, setSearch] = useState(''); // store the searched task
+
   // handle the completed task
   const handleComplete = (taskId) => {
     setAllTask((prevTask) =>
@@ -33,7 +37,6 @@ const TodoApp = () => {
   const handleDelete = (taskId) => {
     const deleteTask = allTask.filter((task) => task.id !== taskId);
     setAllTask(deleteTask);
-    console.log('Deleted task', deleteTask);
   };
 
   return (
@@ -52,12 +55,21 @@ const TodoApp = () => {
         className="w-[650px] h-[90vh] max-h-[800px] py-10 px-5 relative shadow-md rounded-[10px] overflow-hidden max-[725px]:w-[500px] max-[725px]:min-h-[90vh] max-[530px]:w-[95vw]"
         style={{ background: 'white' }}
       >
-      <h1 className="text-[3rem] font-semibold drop-shadow-md text-center 
-      max-[725px]:text-[2rem] mb-5 -mt-5">TODO LIST</h1>
+        <h1
+          className="text-[3rem] font-semibold drop-shadow-md text-center 
+      max-[725px]:text-[2rem] mb-5 -mt-5"
+        >
+          TODO LIST
+        </h1>
+
+        {!allTask.length > 0 && <EmptyTask/>}
+
         {/* Search feild */}
-        <div className="w-full flex items-center justify-between px-4 gap-5  h-[50px] max-[725px]:h-[40px] max-[725px]:gap-2 max-[430px]:px-0">
+        <div className="w-full flex items-center justify-between px-4 gap-5  h-[50px] max-[725px]:h-[40px] 
+        max-[725px]:gap-2 max-[430px]:px-0">
           <TodoInput
             onChange={(e) => setSearch(e.target.value)}
+            placeholder={'Search task...'}
             Icon={<GoSearch size={23} className="text-purple" />}
           />
           <DropDown
@@ -75,6 +87,7 @@ const TodoApp = () => {
               (selected === 'completed' && !todo.isCompleted) ||
               (selected === 'pending' && todo.isCompleted);
             if (isHidden) return null;
+
             // returning the todos task reuseable component
             return (
               <TodoList
@@ -96,12 +109,11 @@ const TodoApp = () => {
         <div
           onClick={() => setShowPopup((prev) => !prev)}
           className="absolute bottom-5 right-5 bg-purple items-center justify-between h-[50px] rounded-full 
-              p-2.5 text-white shadow-md cursor-pointer hover:scale-[1.05] hover:shadow-xl 
+              p-2.5 text-white shadow-md cursor-pointer hover:scale-[1.05] hover:shadow-xl z-20
               duration-300 ease-in-out flex gap-1 px-5 font-semibold max-[725px]:w-[50px] max-[725px]:h-[50px]"
         >
-          <p className='max-[725px]:hidden'>Add New Task</p>
-          <HiOutlinePlus size={20} 
-          className='max-[725px]:scale-[2.2]'/>
+          <p className="max-[725px]:hidden">Add New Task</p>
+          <HiOutlinePlus size={20} className="max-[725px]:scale-[2.2]" />
         </div>
       </div>
     </section>

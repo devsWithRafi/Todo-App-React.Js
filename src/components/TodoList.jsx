@@ -4,7 +4,7 @@ import { MdCheck } from 'react-icons/md';
 
 const TodoList = ({ Notes, isCompleted, onclick, editTask, deleteTask }) => {
   return (
-    <div className="w-full flex items-center gap-3 justify-between py-3 border-b border-purple">
+    <div className="w-full flex items-center gap-3 justify-between py-3 border-b border-purple z-20">
       <div className="flex items-center gap-3 text-[1.3rem] font-semibold max-[530px]:gap-1.5">
         {/* check box */}
         <div

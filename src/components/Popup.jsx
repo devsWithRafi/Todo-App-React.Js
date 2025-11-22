@@ -36,8 +36,8 @@ const Popup = ({ showPopup,setShowPopup,setAddAllTask,editMode,setEditMode,editT
   return (
     <section
       style={{ display: showPopup ? 'flex' : 'none', }}
-      className="flex z-[1] items-center justify-center fixed w-screen h-screen bg-[rgba(0,0,0,0.5)] 
-      top-0 left-0 bottom-0 right-0"
+      className="flex items-center justify-center fixed w-screen h-screen bg-[rgba(0,0,0,0.5)] 
+      top-0 left-0 bottom-0 right-0 z-[222222222]"
     >
       <form
         onSubmit={handleSubmit}
@@ -45,8 +45,10 @@ const Popup = ({ showPopup,setShowPopup,setAddAllTask,editMode,setEditMode,editT
         p-8 items-center shadow-lg max-[725px]:w-[400px] max-[725px]:h-[250px] max-[430px]:w-[350px] max-[430px]:p-5 max-[430px]:h-[200px]"
       >
         <div className="w-full flex flex-col gap-5 items-center max-[430px]:gap-1">
-          <h1 className="font-semibold uppercase text-[1.5rem] drop-shadow-md">New Note</h1>
-          <TodoInput useRef={inputRef} height={'45px'} />
+          <h1 className="font-semibold uppercase text-[1.5rem] drop-shadow-md">
+            {!editMode ? "New Note" : "Edit Task"}
+          </h1>
+          <TodoInput useRef={inputRef} height={'45px'} placeholder={!editMode ? 'Add Task' : 'Edit Task'}/>
         </div>
         <div className="flex w-full items-center justify-between">
           <button
