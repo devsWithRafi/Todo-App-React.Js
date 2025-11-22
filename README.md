@@ -1,16 +1,49 @@
-# React + Vite
+# Todo List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and intuitive Todo List application built with React.js and Tailwind CSS for efficient task management.
 
-Currently, two official plugins are available:
+### - Live Demo: [Click Here](https://todo-app-react-js-pink-one.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div style='display:grid; grid-template-columns: repeat(2, 1fr); width:100%; justify-content:center; gap:20px'>
+    <img src='public\image1.jpg' style='width:100%; height:100%'/>
+    <img src='public\image2.jpg' style='width:100%; height:100%'/>
+    <img src='public\image3.jpg' style='width:100%; height:100%'/>
+    <img src='public\image4.jpg' />
+</div>
 
-## React Compiler
+## Features:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Add Tasks:** Click the "Add New Task" button to open a popup modal where you can create new tasks
 
-## Expanding the ESLint configuration
+- **Task Status:** Tasks are automatically categorized as `"Pending"` or `"Completed"`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Filter Tasks:** Use the dropdown menu to sort and view tasks by:
+
+  - All tasks
+  - Completed tasks
+  - Pending tasks
+
+- **Edit Tasks:** Click the edit icon to modify existing tasks
+
+- **Delete Tasks:** Remove unwanted tasks with the delete button
+
+- **Search Functionality:** Quickly find tasks using the search bar
+
+- **Responsive Design:** Fully optimized for both desktop and mobile devices
+
+## Tech Stack:
+
+<table>
+    <tr>
+        <th>Technology</th>
+        <th>Uses</th>
+    </tr>
+    <tr>
+        <td>React.js</td>
+        <td>Frontend framework for building the user interface</td>
+    </tr>
+    <tr>
+        <td>Tailwind CSS</td>
+        <td>Utility-first CSS framework for styling</td>
+    </tr>
+</table>
